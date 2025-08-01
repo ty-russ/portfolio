@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="description" content="Welcome to my professional portfolio. I am a Data Analyst skilled in Python, Data Visualization, SQL, and Data Storytelling. Explore my projects, skills, and get in touch.">
+  <meta name="keywords" content="Data Analyst,Data Scientist, Portfolio, Python, Data Visualization, SQL, Data Storytelling">
+  <meta name="author" content="Tirus Wagacha">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    .project-card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .nav-link {
+      color: #333;
+      font-weight: bold;
+    }
+    .nav-link:hover {
+      color: #1d4ed8;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+<div class="container mx-auto px-4">
+
+  <!-- Navigation Bar -->
+  <nav class="sticky-nav py-4 px-2">
+    <div class="flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold">Portfolio</a>
+      <div class="flex space-x-4">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Home Section -->
+<section id="home" class="h-screen bg-cover bg-center bg-gray-100 flex flex-col justify-center items-center text-center text-white" style="background-image: url('images/about/background.jpeg');">
+    <div class="bg-black bg-opacity-50 p-8 rounded-lg">
+      <h1 class="text-5xl font-bold mb-4">Hi, I'm Tirus Kimani Wagacha</h1>
+      <a href="#about" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">Learn More About Me</a>
+      <a href="#projects" class="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold mt-4 hover:bg-green-600 transition">See My Projects</a>
+    </div>
+  </section>
+  
+
+  <!-- About Section -->
+  <section id="about" class="text-center my-16">
+    <h1 class="font-bold text-4xl mb-4">In a nutshell ...</h1>
+    <img src="images/about/me.jpeg" alt="Personal Picture" class="rounded-full mx-auto w-32">
+    <p class="mt-4 max-w-xl mx-auto text-gray-700">
+  I’m a data scientist and software engineer passionate about building intelligent, data-driven solutions that drive business impact. With a strong foundation in Python, SQL, and machine learning, I specialize in developing AI-powered systems that automate analytics, generate insights, and enhance decision-making.
+</p>
+
+<p class="mt-4 max-w-xl mx-auto text-gray-700">
+  Currently pursuing an M.S. in Data Analytics at Kansas State University (4.0 GPA), I combine hands-on experience in backend engineering with expertise in generative AI, NLP, and cloud tools. My background spans fintech, logistics, and insurance — enabling me to bridge data science with scalable software systems. I’m particularly focused on building LLM-powered agents and analytics tools that simplify complexity and unlock value from data.
+</p>
+      <!-- Gradio Chat Embed -->
+      <div class="mt-8 max-w-xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-2">Chat with Me 👇</h2>
+
+         <div class="rounded-xl overflow-hidden shadow-lg border border-gray-200 w-full h-[600px] sm:h-[550px] md:h-[500px]">
+        <iframe 
+          src="https://ty-russ-career-conversations.hf.space/?__theme=system" 
+          width="100%" 
+          height="500" 
+          class="rounded-lg shadow-lg w-full  border-0 rounded-xl shadow"
+          style="border: none;" 
+          allow="clipboard-write"
+          title="TyeBot">
+        </iframe>
+
+        </div>
+      
+      </div>
+      <a href="https://drive.google.com/file/d/1K4sGYVVw68gqW6-7xq5EiB_0Oy3Gw6qo/view?usp=sharing" class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition" target="_blank">Download My Resume</a>
+
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="my-16">
+    <h1 class="font-bold text-4xl text-center mb-8">Skills</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="p-4 bg-white shadow-md">
+        <img src="images/skills/python.png" alt="Python" class="mx-auto w-24">
+        <h2 class="font-bold text-xl mt-2">Python</h2>
+        <p class="text-gray-700">Experienced in using Python for data analysis, data manipulation, and building machine learning models.</p>
+      </div>
+      <div class="p-4 bg-white shadow-md">
+        <img src="images/skills/data-visualization.png" alt="Data Visualization" class="mx-auto w-24">
+        <h2 class="font-bold text-xl mt-2">Data Visualization & Storytelling</h2>
+        <p class="text-gray-700">Skilled in creating insightful and visually appealing data visualizations using tools like Tableau and Power BI.</p>
+      </div>
+      <div class="p-4 bg-white shadow-md">
+        <img src="images/skills/sql.jpeg" alt="SQL" class="mx-auto w-24">
+        <h2 class="font-bold text-xl mt-2">SQL</h2>
+        <p class="text-gray-700">Proficient in writing complex SQL queries for data extraction, manipulation, and analysis.</p>
+      </div>
+      <div class="p-4 bg-white shadow-md">
+        <img src="images/projects/ml.jpg" alt="Machine Learning" class="mx-auto w-24">
+        <h2 class="font-bold text-xl mt-2">Machine Learning</h2>
+        <p class="text-gray-700">Proficient in developing and implementing machine learning models to analyze data, recognize patterns, and generate predictive insights for solving complex problems.
+        </p>
+      </div>
+    </div>
+  </section>
+<!-- Projects Section -->
+<section id="projects" class="my-16">
+    <h1 class="font-bold text-4xl text-center mb-8">Projects</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/subsidy.png" alt="Project 1" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Analyzing Subsidies and Emergency Support for Livestock Farming in the Midwest</h2>
+          <p class="text-gray-700 mb-4">This project explores the distribution of government agricultural subsidies in Kansas, Nebraska, and Oklahoma, focusing on how financial aid supports livestock farming. By leveraging Tableau visualizations, I analyzed key patterns in subsidy allocation, emergency relief efficiency, and disparities between small and large farms. The insights help farmers understand how to strategically position themselves to maximize government support while uncovering inefficiencies in the subsidy system.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://saber-watcher-1ed.notion.site/Analyzing-Subsidies-and-Emergency-Support-for-Livestock-Farming-in-the-Midwest-19023d8cf7318050993cee5e1b02f839?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/pricing.jpeg" alt="Project 1" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">The Pricing Dilemma on Amazon: Insights from Amazon Sales Data</h2>
+          <p>Imagine shopping on Amazon and choosing between two nearly identical products—one priced at $50 with no discount and another at $30 after a 40% discount. Which one do you buy? 💡 But what if the discounted product has lower ratings while the full-priced one is highly rated? 🤔 Our data storytelling project explores whether heavy discounting truly boosts engagement or if there’s a sweet spot where Amazon can optimize discounts without eroding profits. 👉 Using Amazon Product Sales Data 2023, we uncover key insights into pricing strategies, customer trust, and sales dynamics.</p>
+
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://saber-watcher-1ed.notion.site/Bridging-Gaps-to-Build-Better-Connections-Insights-from-Amazon-Sales-Data-19123d8cf7318061a20cd24b3cc2a576?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/data-survey.jpeg" alt="Project 1" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Analyzing Survey Data - Power BI</h2>
+          <p class="text-gray-700 mb-4">Here, I’ll dive into data transformation, visualization, and dashboard creation focusing on their compensation, job satisfaction and preferred languages.</p>
+          <p>The primary focus of this project is to work with real survey data, collected from 600-700 data professionals, to understand trends in the data profession landscape. The data includes responses to various questions, ranging from job titles and programming languages used to salaries and demographic information.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://saber-watcher-1ed.notion.site/Analyzing-Survey-Data-from-Data-Professionals-Power-BI-44f12aaad50644718c66a5f9da632c48?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/recommender.jpeg" alt="Project 3" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Sentiment-Enhanced Product Recommendation System</h2>
+          <p class="text-gray-700 mb-4">This project is a sentiment-enhanced recommendation system designed to improve product recommendations by combining natural language processing (NLP) techniques with embedding-based similarity search. The system analyzes customer reviews, incorporates sentiment analysis, and uses FAISS for efficient similarity search to recommend products aligned with customer preferences.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/recommender_system_llm_sentiment/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/feedback.jpeg" alt="Project 3" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Customer Feedback Analysis for the Hospitality Industry</h2>
+          <p class="text-gray-700 mb-4">This project focuses on analyzing hotel reviews to uncover valuable insights for the hospitality industry, specifically for a new company, AfriDusky Tours and Travel Agency, entering the Kenyan market. The analysis aims to understand customer satisfaction, identify areas of improvement, and highlight strengths to help AfriDusky establish itself as a customer-centric organization.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/customer-feedback-analysis/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/imdb.jpeg" alt="Project 3" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Movie Analysis Project: Regression, Classification, and Clustering Insights</h2>
+          <p class="text-gray-700 mb-4">I will walk you through my project on analyzing IMDb scores. This project involves data exploration, regression analysis, classification, and clustering to understand the factors affecting IMDb scores and to categorize movies based on various features.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/IMDB-Movies-analysis/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+            <!-- <a href="https://saber-watcher-1ed.notion.site/Movie-Analysis-Project-Regression-Classification-and-Clustering-Insights-19a8dc461c294f9aa5af0b5d2bc9a6d1?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/office.jpeg" alt="Project 3" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Office Star Choice Model Analysis</h2>
+          <p class="text-gray-700 mb-4">This project analyzes the factors influencing the choice of "Office Star" using a binary logit model</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/office-choice-analysis/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+            <!-- <a href="https://saber-watcher-1ed.notion.site/Movie-Analysis-Project-Regression-Classification-and-Clustering-Insights-19a8dc461c294f9aa5af0b5d2bc9a6d1?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/covid-19.webp" alt="Project 4" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Covid 19 Deaths & Vaccinations Data Analysis</h2>
+          <p class="text-gray-700 mb-4">This project involves analyzing COVID-19 data using SQL to gain insights into the pandemic's impact across different countries and continents. The analysis focuses on critical metrics such as total cases, total deaths, death rates, infection rates, and vaccination progress. The data used in this project comes from publicly available sources and is intended to showcase my SQL skills and ability to derive meaningful insights from complex datasets.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/covid-data-project/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+            <!-- <a href="https://saber-watcher-1ed.notion.site/Covid-19-Deaths-Vaccinations-Data-Analysis-308c061ecf7d4cdfb5c4eeb32c4ecdbf?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/forte.jpg" alt="Project 3" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Conjoint Analysis: FORTE HOTEL DESIGN</h2>
+          <p class="text-gray-700 mb-4">The aim of this project was to determine the most preferred hotel design attributes and their levels using Conjoint Analysis.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/forte-hotel-conjoint-analysis/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+            <!-- <a href="https://saber-watcher-1ed.notion.site/Movie-Analysis-Project-Regression-Classification-and-Clustering-Insights-19a8dc461c294f9aa5af0b5d2bc9a6d1?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="project-card shadow-lg bg-white flex flex-col h-full">
+        <img src="images/projects/data-job-market.webp" alt="Project 2" class="w-full">
+        <div class="p-4 flex-1">
+          <h2 class="font-bold text-2xl mb-2">Data Job Market - SQL </h2>
+          <p class="text-gray-700 mb-4">Lets dive into the data job market! Focusing on data analyst roles, this project explores top-paying jobs, in-demand skills, and where high demand meets high salary in data analytics.</p>
+        </div>
+        <div class="p-4">
+          <div class="flex justify-center space-x-4">
+            <a href="https://github.com/ty-russ/SQL_data_job_analysis/blob/main/README.md" target="_blank" class="text-blue-500 border border-blue-500 px-4 py-2 rounded hover:bg-blue-500 hover:text-white transition">View Project</a>
+            <!-- <a href="https://saber-watcher-1ed.notion.site/Data-Job-Market-SQL-c6615366616647f9b489ca2c08f36316?pvs=4" target="_blank" class="text-green-500 border border-green-500 px-4 py-2 rounded hover:bg-green-500 hover:text-white transition">Read  Article</a> -->
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </section>
+  
+  
+  
+
+
+
+  <!-- Contact Section -->
+  <!-- Contact Section -->
+<!-- <section id="contact" class="bg-gray-800 text-white py-16 text-center">
+    <h1 class="font-bold text-4xl mb-8">Contact Me</h1>
+    
+  
+    <div class="mb-8">
+      <p class="flex items-center justify-center mb-4 text-lg">
+        <img src="images/icons/email.jpeg" alt="Email Icon" class="w-6 mr-3"> 
+        <a href="mailto:kimtirus@gmail.com" class="hover:underline">kimtirus@gmail.com</a>
+      </p>
+      <p class="flex items-center justify-center mb-8 text-lg">
+        <img src="images/icons/phone.png" alt="Phone Icon" class="w-6 mr-3"> 
+        <a href="tel:+16033772469" class="hover:underline">+1 603-377-2469</a>
+      </p>
+    </div>
+    
+ 
+    <div class="flex justify-center space-x-6">
+      <a href="http://www.linkedin.com/in/tirus-wagacha" target="_blank" class="hover:opacity-80">
+        <img src="images/icons/linkedn.png" alt="LinkedIn Icon" class="w-12">
+      </a>
+      <a href="https://github.com/ty-russ" target="_blank" class="hover:opacity-80">
+        <img src="images/icons/github.png" alt="GitHub Icon" class="w-12">
+      </a>
+    </div>
+  </section> -->
+
+  <section id="contact" class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto px-6">
+      <h1 class="font-bold text-4xl mb-8 text-center">Contact Me</h1>
+  
+      <!-- Contact Info -->
+      <div class="mb-12 text-center">
+        <div class="flex items-center justify-center mb-6">
+          <img src="images/icons/email.jpeg" alt="Email Icon" class="w-8 h-8 mr-4">
+          <a href="mailto:kimtirus@gmail.com" class="text-lg hover:text-gray-300 transition">kimtirus@gmail.com</a>
+        </div>
+        <div class="flex items-center justify-center">
+          <img src="images/icons/phone.png" alt="Phone Icon" class="w-8 h-8 mr-4">
+          <a href="tel:+16033772469" class="text-lg hover:text-gray-300 transition">+1 603-377-2469</a>
+        </div>
+      </div>
+  
+      <!-- Social Links -->
+      <div class="flex justify-center space-x-8">
+        <a href="http://www.linkedin.com/in/tirus-wagacha" target="_blank" class="hover:opacity-80 transition">
+          <div class="p-3 bg-gray-700  shadow-md">
+            <img src="images/icons/linkedn.png" alt="LinkedIn Icon" class="w-10 h-10">
+          </div>
+        </a>
+        <a href="https://github.com/ty-russ" target="_blank" class="hover:opacity-80 transition">
+          <div class="p-3 bg-gray-700  shadow-md">
+            <img src="images/icons/github.png" alt="GitHub Icon" class="w-10 h-10">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  
+</div>
+
+<!-- Tailwind JS -->
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+</body>
+</html>
