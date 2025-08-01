@@ -88,7 +88,7 @@
       color: #d1d5db;
     }
     .dark .text-gray-700 {
-      color: #cbd5e1 !important;
+      color: #ecedee !important;
     }
     .dark .bg-white {
       background-color: #1f2a44 !important;
@@ -100,6 +100,79 @@
     .navbar-toggler {
       border: none;
     }
+
+
+    /* Dark-mode readability fixes */
+.dark {
+  --card-bg: #1f2a44;
+  --card-text: #e2e8f0;
+  --muted-text: rgba(255,255,255,0.65);
+  --link-color: #7dd3fc;
+  --btn-outline-border: rgba(125,211,252,0.6);
+}
+
+/* Apply variables */
+.dark .card,
+.dark .project-card,
+.dark .skill-card {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text);
+}
+
+/* Make muted text readable */
+.dark .text-muted,
+.dark .small,
+.dark .card .small,
+.dark .card-text {
+  color: var(--muted-text) !important;
+}
+
+/* Headings and titles slightly brighter */
+.dark .card-title,
+.dark h5,
+.dark h2,
+.dark h3 {
+  color: #f0f9ff; /* near-white for emphasis */
+}
+
+/* Links */
+.dark a {
+  color: var(--link-color);
+}
+.dark a.btn-outline-success {
+  color: #10b981;
+  border-color: #10b981;
+}
+.dark a.btn-outline-primary {
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+.dark a.btn-outline-primary:hover {
+  background-color: rgba(59,130,246,0.1);
+}
+.dark a.btn-outline-success:hover {
+  background-color: rgba(16,185,129,0.1);
+}
+
+/* Outline buttons (if using outlines) more visible */
+.dark .btn-outline-light {
+  color: #d1d5db;
+  border-color: #6b7280;
+}
+.dark .btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.08);
+}
+
+/* Ensure badge/text overlays stand out */
+.dark .position-absolute .bg-primary {
+  background-color: #2563eb; /* brighter blue */
+}
+
+/* Optional: subtle card inner shadow for separation */
+.dark .project-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
   </style>
 </head>
 
