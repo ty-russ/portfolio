@@ -179,12 +179,34 @@
 <body class="antialiased bg-gray-50 dark:bg-[#0f172a] text-gray-800 dark:text-gray-200">
 
   <!-- Floating Contact CTA -->
-  <a href="#contact" aria-label="Contact" class="fixed bottom-6 right-6 bg-accent text-white rounded-full shadow-xl flex items-center px-4 py-3 gap-2 hover:scale-105 transition" >
+  <!-- <a href="#contact" aria-label="Contact" class="fixed bottom-6 right-6 bg-accent text-white rounded-full shadow-xl flex items-center px-4 py-3 gap-2 hover:scale-105 transition" >
     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path d="M16 12H8m0 0l4-4m-4 4l4 4" />
     </svg>
     Let's Talk
-  </a>
+  </a> -->
+
+  <!-- Floating Chat Button -->
+<a id="openChat" class="fixed bottom-6 right-6 bg-accent text-white rounded-full shadow-xl flex items-center px-4 py-3 gap-2 hover:scale-105 transition" >
+  💬  Let’s Chat
+</a>
+
+<!-- Chat Modal -->
+<div id="chatModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg w-[95%] sm:w-[600px] h-[90%] sm:h-[550px] relative shadow-xl">
+    <!-- Close Button -->
+    <button id="closeChat" class="absolute top-3 right-3 text-gray-600 hover:text-red-600 text-xl font-bold">&times;</button>
+    
+    <!-- Embedded Chatbot -->
+    <iframe 
+      src="https://ty-russ-career-conversations.hf.space"
+      class="w-full h-full rounded-lg border-0"
+      allow="clipboard-write"
+      title="Career Chatbot">
+    </iframe>      
+  </div>
+</div>
+
 
   <!-- Navigation -->
   <header class="sticky top-0 z-50 shadow-sm bg-white dark:bg-[#0f172a]">
@@ -274,14 +296,22 @@
               <div class="p-4">
                 <h3 class="fw-semibold mb-2">Chat with Me</h3>
                 <p class="text-muted small mb-3">Ask about my work, projects, or how I build intelligent systems.</p>
-                <div class="ratio ratio-16x9 rounded-lg overflow-hidden">
+
+                <button id="openChatAbout" class="mt-6 bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition flex items-center gap-2 mx-auto">
+                 💬  Let’s Chat
+              </button>
+
+            
+
+
+                <!-- <div class="ratio ratio-16x9 rounded-lg overflow-hidden">
                   <iframe 
                     src="https://ty-russ-career-conversations.hf.space/?__theme=system" 
                     title="TyeBot" 
                     allow="clipboard-write" 
                     class="border-0"
                   ></iframe>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -625,6 +655,20 @@
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+  const openBtn = document.getElementById("openChat");
+  const openAboutBtn = document.getElementById("openChatAbout");
+  const modal = document.getElementById("chatModal");
+  const closeBtn = document.getElementById("closeChat");
+
+  openBtn.onclick = () => modal.classList.remove("hidden");
+  openAboutBtn.onclick = () => modal.classList.remove("hidden");
+  closeBtn.onclick = () => modal.classList.add("hidden");
+
+  // Optional: close modal on background click
+  modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  };
   </script>
 
 </body>
