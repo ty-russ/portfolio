@@ -13,34 +13,39 @@
   <meta property="og:description" content="Building intelligent agents and AI-powered analytics. See projects and connect." />
   <meta property="og:image" content="images/about/me.jpeg" />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#1d4ed8" />
+  <meta name="theme-color" content="#0a0e27" />
 
   <!-- Bootstrap (structure, responsive components) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Tailwind CDN for utility enhancements -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config for dark mode class strategy
+    // Tailwind config for dark mode class strategy + Modern Navy + Cyan palette
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            primary: '#1d4ed8',
-            accent: '#10b981'
+            primary: '#3b82f6',    // electric blue
+            accent: '#06b6d4',     // cyan
+            navy: '#0a0e27',       // deep navy base
+            'navy-2': '#111634',
+            'navy-3': '#1e293b'
           },
           fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui']
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['"Space Grotesk"', 'Inter', 'ui-sans-serif', 'system-ui']
           }
         }
       }
     };
   </script>
 
-  <!-- Google Font -->
+  <!-- Google Fonts: Inter for body, Space Grotesk for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Favicon placeholder -->
   <link rel="icon" href="favicon.ico" />
@@ -51,22 +56,32 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Tirus Kimani Wagacha",
-    "jobTitle": "Data Scientist & Software Engineer",
-    "url": "https://your-portfolio-domain.com",
+    "jobTitle": "Data Scientist & Backend Software Engineer",
     "sameAs": [
       "https://www.linkedin.com/in/tirus-wagacha",
       "https://github.com/ty-russ"
     ],
-    "description": "Building intelligent systems and AI-powered analytics. Specializes in Generative AI, NLP, and scalable backend systems."
+    "description": "Building intelligent systems and AI-powered analytics. Specializes in Generative AI, RAG pipelines, NLP, and scalable backend systems."
   }
   </script>
 
   <style>
     :root {
       --transition: .25s ease;
+      --navy: #0a0e27;
+      --navy-2: #111634;
+      --navy-3: #1e293b;
+      --electric: #3b82f6;
+      --cyan: #06b6d4;
+      --cyan-soft: #67e8f9;
     }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    /* Headings get Space Grotesk for distinct character */
+    h1, h2, h3, .display-5, .display-6, .navbar-brand, .fs-4 {
+      font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+      letter-spacing: -0.01em;
     }
     .project-card {
       border-radius: 1rem;
@@ -75,16 +90,125 @@
     }
     .project-card:hover {
       transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
     }
     .gradient-hero {
-      background: linear-gradient(135deg, rgba(29,78,216,.85) 0%, rgba(16,185,129,.7) 70%), url('images/about/background.jpeg') center/cover no-repeat;
+      background:
+        radial-gradient(ellipse at top right, rgba(6,182,212,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom left, rgba(59,130,246,0.18) 0%, transparent 55%),
+        linear-gradient(135deg, #0a0e27 0%, #111634 50%, #1e3a8a 100%);
+      position: relative;
+      overflow: hidden;
     }
+    .gradient-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+      pointer-events: none;
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(103,232,249,0.25);
+      border-radius: 999px;
+      color: #cffafe;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+    .hero-chip:hover { background: rgba(6,182,212,0.15); border-color: rgba(103,232,249,0.5); }
+    .hero-stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: #67e8f9;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .typed-cursor {
+      display: inline-block;
+      width: 3px;
+      background: #06b6d4;
+      margin-left: 4px;
+      animation: blink 1s steps(2, end) infinite;
+      vertical-align: baseline;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Projects filter chips */
+    .filter-chip {
+      padding: 6px 16px;
+      background: transparent;
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #1e293b;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-chip:hover {
+      background: rgba(59,130,246,0.08);
+      border-color: #3b82f6;
+    }
+    .filter-chip.active {
+      background: #3b82f6;
+      color: #ffffff;
+      border-color: #3b82f6;
+    }
+    .dark .filter-chip {
+      color: #cbd5e1;
+      border-color: rgba(103,232,249,0.3);
+    }
+    .dark .filter-chip:hover {
+      background: rgba(6,182,212,0.12);
+      border-color: #06b6d4;
+    }
+    .dark .filter-chip.active {
+      background: #06b6d4;
+      color: #042c53;
+      border-color: #06b6d4;
+    }
+    .project-col.filter-hidden { display: none !important; }
+
     .dark .card {
       background-color: #1f2937;
     }
     .dark body {
-      background-color: #0f172a;
+      background-color: #0a0e27;
       color: #d1d5db;
     }
     .dark .text-gray-700 {
@@ -104,11 +228,11 @@
 
     /* Dark-mode readability fixes */
 .dark {
-  --card-bg: #1f2a44;
+  --card-bg: #111634;
   --card-text: #e2e8f0;
-  --muted-text: rgba(255,255,255,0.65);
-  --link-color: #7dd3fc;
-  --btn-outline-border: rgba(125,211,252,0.6);
+  --muted-text: rgba(255,255,255,0.7);
+  --link-color: #67e8f9;
+  --btn-outline-border: rgba(103,232,249,0.6);
 }
 
 /* Apply variables */
@@ -140,18 +264,18 @@
   color: var(--link-color);
 }
 .dark a.btn-outline-success {
-  color: #10b981;
-  border-color: #10b981;
+  color: #06b6d4;
+  border-color: #06b6d4;
 }
 .dark a.btn-outline-primary {
-  color: #3b82f6;
-  border-color: #3b82f6;
+  color: #67e8f9;
+  border-color: #67e8f9;
 }
 .dark a.btn-outline-primary:hover {
-  background-color: rgba(59,130,246,0.1);
+  background-color: rgba(103,232,249,0.1);
 }
 .dark a.btn-outline-success:hover {
-  background-color: rgba(16,185,129,0.1);
+  background-color: rgba(6,182,212,0.1);
 }
 
 /* Outline buttons (if using outlines) more visible */
@@ -171,6 +295,84 @@
 /* Optional: subtle card inner shadow for separation */
 .dark .project-card {
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Experience timeline */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #3b82f6, #06b6d4);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.timeline-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.78rem;
+  top: 1.75rem;
+  width: 14px;
+  height: 14px;
+  background: #06b6d4;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+.dark .timeline-item {
+  background-color: #111634;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.dark .timeline-item::before {
+  border-color: #111634;
+}
+.timeline-meta {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 500;
+}
+.dark .timeline-meta {
+  color: #94a3b8;
+}
+.timeline-role {
+  color: #3b82f6;
+  font-weight: 600;
+}
+.dark .timeline-role {
+  color: #67e8f9;
+}
+.timeline-bullets {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.1rem;
+}
+.timeline-bullets li {
+  margin-bottom: 0.35rem;
+  font-size: 0.95rem;
+}
+
+/* Featured badge utility (replaces inline style) */
+.badge-featured {
+  background-color: #06b6d4 !important;
+  color: #042c53 !important;
+  font-weight: 600;
 }
 
   </style>
@@ -209,7 +411,7 @@
 
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 shadow-sm bg-white dark:bg-[#0f172a]">
+  <header class="sticky top-0 z-50 shadow-sm bg-white dark:bg-[#0a0e27]">
     <div class="container px-4 mx-auto d-flex flex-wrap align-items-center justify-content-between py-3">
       <a href="#" class="d-flex align-items-center text-decoration-none">
         <span class="fs-4 fw-bold text-primary dark:text-white">Tirus Wagacha</span>
@@ -237,8 +439,9 @@
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#home">Home</a></li>
                 <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#about">About</a></li>
-                <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#projects">Projects</a></li>
+                <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#experience">Experience</a></li>
                 <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#skills">Skills</a></li>
+                <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#projects">Projects</a></li>
                 <li class="nav-item mx-2"><a class="nav-link fw-semibold text-dark dark:text-gray-200" href="#contact">Contact</a></li>
                 <li class="nav-item ms-3">
                   <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
@@ -252,26 +455,74 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="gradient-hero min-vh-100 d-flex align-items-center">
-    <div class="container text-center text-white py-12">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <h1 class="display-5 fw-bold mb-3">Intelligent Solutions. Data-Driven Decisions. Real Impact.</h1>
-          <p class="lead mb-4">  I’m <strong>Tirus K Wagacha</strong>, a <strong>Data Scientist, Data Analyst & Backend Software Engineer specializing in analytics, machine learning, and intelligent systems</strong>.</p>
-          <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="#projects" class="btn btn-light btn-lg fw-semibold shadow-sm">View Projects</a>
-            <a href="#about" class="btn btn-outline-light btn-lg fw-semibold">Learn More</a>
+  <section id="home" class="gradient-hero min-vh-100 d-flex align-items-center position-relative">
+    <div class="container text-white py-12 position-relative" style="z-index:2;">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-10 text-center">
+
+          <!-- Eyebrow chip -->
+          <div class="d-inline-flex align-items-center gap-2 mb-4" style="padding:6px 14px;background:rgba(6,182,212,0.12);border:1px solid rgba(103,232,249,0.4);border-radius:999px;font-size:0.8rem;color:#67e8f9;font-weight:500;">
+            <span style="width:6px;height:6px;background:#06b6d4;border-radius:50%;box-shadow:0 0 8px #06b6d4;"></span>
+            Available for full-time roles · Bentonville, AR · Remote-friendly
           </div>
-          <div class="mt-6">
-            <small class="d-block opacity-90">M.Sc in Data Analytics-Data Science • B.Sc in Mechanical Engineering</small>
+
+          <!-- Headline with typed rotator -->
+          <h1 class="display-4 fw-bold mb-3" style="line-height:1.15;">
+            Hi, I'm <span style="background:linear-gradient(90deg,#67e8f9,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;">Tirus Wagacha</span>.
+            <br/>
+            <span class="d-inline-block mt-2" style="font-size:0.7em;">I build <span id="typedRole" style="color:#67e8f9;">data systems</span><span class="typed-cursor">&nbsp;</span></span>
+          </h1>
+
+          <p class="lead mx-auto mb-4" style="max-width:760px;color:rgba(255,255,255,0.85);">
+            Data scientist, backend engineer, and founder. I ship production-grade
+            <strong style="color:#67e8f9;">RAG pipelines</strong>, agentic AI systems, and analytics
+            platforms that turn raw operational data into executive-grade decisions.
+          </p>
+
+          <!-- Tech stack chip strip -->
+          <div class="d-flex justify-content-center flex-wrap gap-2 mb-4" aria-label="Core technologies">
+            <span class="hero-chip">LlamaIndex</span>
+            <span class="hero-chip">LangChain</span>
+            <span class="hero-chip">FastAPI</span>
+            <span class="hero-chip">Mistral 7B</span>
+            <span class="hero-chip">AWS · Docker</span>
+            <span class="hero-chip">Power BI</span>
+            <span class="hero-chip">PostgreSQL</span>
           </div>
+
+          <!-- CTAs -->
+          <div class="d-flex justify-content-center gap-3 flex-wrap mb-5">
+            <a href="#projects" class="btn btn-lg fw-semibold" style="background:#06b6d4;color:#042c53;border:none;padding:0.7rem 1.6rem;">See Featured Work →</a>
+            <a href="#contact" class="btn btn-outline-light btn-lg fw-semibold" style="padding:0.7rem 1.6rem;">Get in Touch</a>
+          </div>
+
+          <!-- Stats bar -->
+          <div class="row g-4 justify-content-center" style="max-width:780px;margin:0 auto;">
+            <div class="col-6 col-md-3 text-center">
+              <div class="hero-stat-num">4<span style="font-size:0.7em;">+</span></div>
+              <div class="hero-stat-label">Years building data systems</div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+              <div class="hero-stat-num">10<span style="font-size:0.7em;">+</span></div>
+              <div class="hero-stat-label">Shipped projects</div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+              <div class="hero-stat-num">4.0</div>
+              <div class="hero-stat-label">GPA · M.S. Data Analytics</div>
+            </div>
+            <div class="col-6 col-md-3 text-center">
+              <div class="hero-stat-num">6</div>
+              <div class="hero-stat-label">Industries served</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-16">
+  <section id="about" class="py-16 reveal">
     <div class="container mx-auto px-4 text-center">
       <div class="row justify-content-center">
         <div class="col-md-10">
@@ -322,60 +573,271 @@
     </div>
   </section>
 
+  <!-- Experience -->
+  <section id="experience" class="py-16 bg-white dark:bg-[#0a0e27] reveal">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="fw-bold display-6">Experience</h2>
+        <p class="text-muted">4+ years building data-driven backend platforms and AI systems across logistics, supply chain, fintech, insurance, oil & gas, and pharma.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="timeline">
+
+            <!-- KSU GTA / RA -->
+            <div class="timeline-item">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+                <h5 class="fw-bold mb-1">Data Analytics Graduate Teaching & Research Assistant</h5>
+                <span class="timeline-meta">Aug 2024 – Jan 2026</span>
+              </div>
+              <div class="timeline-role">Kansas State University · Manhattan, KS</div>
+              <ul class="timeline-bullets">
+                <li>Led end-to-end statistical modeling for a research study on blockchain-based verification systems in pharmaceutical supply chains, turning raw survey data into policy- and operations-grade insights.</li>
+                <li>Designed Python preprocessing and aggregation pipelines benchmarking Data Analytics programs nationally, directly informing faculty planning and curriculum decisions.</li>
+                <li>Supported instruction in Python, SQL, and data visualization, reinforcing real-world analytics best practices.</li>
+              </ul>
+            </div>
+
+            <!-- Volane International -->
+            <div class="timeline-item">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+                <h5 class="fw-bold mb-1">Analytics & Backend Developer</h5>
+                <span class="timeline-meta">Dec 2022 – Aug 2024</span>
+              </div>
+              <div class="timeline-role">Volane International · Nairobi, Kenya</div>
+              <ul class="timeline-bullets">
+                <li>Designed an Inventory & Distribution Management System for oil & gas downstream that integrated transactional data, predictive analytics, and reporting workflows — <strong>reducing stockouts by 30%</strong> and improving demand-forecast accuracy.</li>
+                <li>Engineered SQL and MongoDB pipelines feeding executive Power BI dashboards for real-time KPI visibility across supply chain operations.</li>
+                <li>Implemented CI/CD and containerized deployments using Docker and Kubernetes on AWS, improving release velocity and system reliability.</li>
+              </ul>
+            </div>
+
+            <!-- MPost -->
+            <div class="timeline-item">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+                <h5 class="fw-bold mb-1">Software Developer</h5>
+                <span class="timeline-meta">Mar 2022 – Nov 2022</span>
+              </div>
+              <div class="timeline-role">MPost · Nairobi, Kenya</div>
+              <ul class="timeline-bullets">
+                <li>Re-engineered a multitenant virtual addressing and last-mile logistics platform integrating NoSQL databases, Databricks, digital payments, and reporting workflows — lifting service adoption and delivery efficiency.</li>
+                <li>Optimized SQL queries and indexing strategies, <strong>reducing database response times by 25%</strong>.</li>
+                <li>Automated customer support and data capture using chatbots and USSD applications; conducted EDA to surface operational bottlenecks.</li>
+              </ul>
+            </div>
+
+            <!-- Nanatec -->
+            <div class="timeline-item">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+                <h5 class="fw-bold mb-1">Backend Software Developer</h5>
+                <span class="timeline-meta">May 2020 – Nov 2022</span>
+              </div>
+              <div class="timeline-role">Nanatec Limited · Nairobi, Kenya</div>
+              <ul class="timeline-bullets">
+                <li>Built insurance SaaS platforms using Domain-Driven Design and microservices, supporting policy administration and claims processing workflows.</li>
+                <li>Designed Tableau and SQL-based dashboards visualizing claims trends, policy performance, and operational KPIs.</li>
+                <li>Implemented optimized schemas with strong transaction management and error handling for high-integrity insurance workflows.</li>
+              </ul>
+            </div>
+
+            <!-- Earlier engineering roles, condensed -->
+            <div class="timeline-item">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2">
+                <h5 class="fw-bold mb-1">Engineering Internships</h5>
+                <span class="timeline-meta">2019 – 2021</span>
+              </div>
+              <div class="timeline-role">Maniwa Technologies · KTDA-Chai Trading Company · Kenya</div>
+              <ul class="timeline-bullets">
+                <li><strong>Maniwa Technologies (2021):</strong> ATM, CDM, currency-counter, and electronic-safe maintenance and diagnostics across live banking sites.</li>
+                <li><strong>KTDA-Chai Trading (2019):</strong> Hydraulic forklifts, generators, and warehouse conveyor maintenance; welding and fabrication.</li>
+                <li>The mechanical-engineering grounding that still shapes my systems-thinking approach to data and software today.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Founder badge -->
+          <div class="mt-5 p-4 rounded-3 text-center" style="background:linear-gradient(135deg,rgba(59,130,246,0.08),rgba(6,182,212,0.08));border:1px dashed rgba(59,130,246,0.35);">
+            <h5 class="fw-bold mb-1">Founder & Innovation Lead — <span style="color:#3b82f6;">TITEK Innovate & Consulting</span></h5>
+            <p class="small mb-0 text-muted">Building AI-powered, data-driven products across property management, healthcare, travel, agriculture, insurance, and supply chain.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Skills -->
 
-  <section id="skills" class="py-16 bg-white dark:bg-[#1f243f]">
+  <section id="skills" class="py-16 bg-white dark:bg-[#111634] reveal">
     <div class="container mx-auto px-4">
       <div class="text-center mb-8">
         <h2 class="fw-bold display-6">Skills & Technologies</h2>
-        <p class="text-muted">Combining analytics, engineering, and AI to build intelligent systems.</p>
+        <p class="text-muted">Engineering-grade data, AI, and backend systems — from raw pipelines to hosted, agent-driven products.</p>
       </div>
       <div class="row g-4">
-        <!-- Skill card template -->
+
+        <!-- Python -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
             <img src="images/skills/python.png" alt="Python" class="mx-auto w-16 h-16 mb-3">
             <h5 class="fw-semibold">Python</h5>
-            <p class="small mb-0">Data manipulation, ML pipelines, automation, and agent logic.</p>
+            <p class="small mb-0">Pandas, NumPy, scikit-learn, PySpark, asyncio. ETL pipelines, ML workflows, and agent logic.</p>
           </div>
         </div>
+
+        <!-- SQL & NoSQL -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
             <img src="images/skills/sql.jpeg" alt="SQL" class="mx-auto w-16 h-16 mb-3">
             <h5 class="fw-semibold">SQL & NoSQL</h5>
-            <p class="small mb-0">Complex queries, data modeling, and scalable storage (MongoDB/MySQL).</p>
+            <p class="small mb-0">PostgreSQL, MySQL, MongoDB. Schema design, query optimization, and indexing for production workloads.</p>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
-            <img src="images/skills/data-visualization.png" alt="Data Visualization" class="mx-auto w-16 h-16 mb-3">
-            <h5 class="fw-semibold">Visualization & Storytelling</h5>
-            <p class="small mb-0">Power BI, Tableau, narrative-driven insights for decision-makers.</p>
-          </div>
-        </div>
+
+        <!-- Data Science & ML -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
             <img src="images/projects/ml.jpg" alt="Machine Learning" class="mx-auto w-16 h-16 mb-3">
-            <h5 class="fw-semibold">Machine Learning & LLMs</h5>
-            <p class="small mb-0">Predictive models, transfer learning, LangChain, GPT-4 integrations.</p>
+            <h5 class="fw-semibold">Data Science & ML</h5>
+            <p class="small mb-0">Statistical modeling, KMeans, classification, regression, forecasting. SAS, Databricks, scikit-learn.</p>
           </div>
         </div>
-        <!-- Add more skill cards as needed -->
+
+        <!-- BI & Visualization -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
+            <img src="images/skills/data-visualization.png" alt="Data Visualization" class="mx-auto w-16 h-16 mb-3">
+            <h5 class="fw-semibold">BI & Visualization</h5>
+            <p class="small mb-0">Power BI, Tableau, Plotly, Matplotlib. Executive dashboards and narrative-driven insights.</p>
+          </div>
+        </div>
+
+        <!-- LLMs & RAG -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#1d4ed8,#10b981);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <circle cx="12" cy="15" r="2"/>
+                <path d="M8 15h1.5M14.5 15H16"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold">LLMs & RAG</h5>
+            <p class="small mb-0">LlamaIndex, LangChain, hybrid BM25+vector retrieval, cross-encoder reranking, citation-required prompting.</p>
+          </div>
+        </div>
+
+        <!-- Agentic AI -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#10b981,#1d4ed8);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <circle cx="12" cy="5" r="2"/>
+                <path d="M12 7v4"/>
+                <line x1="8" y1="16" x2="8" y2="16"/>
+                <line x1="16" y1="16" x2="16" y2="16"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold">Agentic AI</h5>
+            <p class="small mb-0">LangGraph, Smolagents, tool/function calling, multi-LLM orchestration with judge arbitration.</p>
+          </div>
+        </div>
+
+        <!-- Backend & APIs -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#1d4ed8,#0ea5e9);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold">Backend & APIs</h5>
+            <p class="small mb-0">FastAPI, Express.js, REST design, auth, audit logging, maker-checker controls, double-entry accounting.</p>
+          </div>
+        </div>
+
+        <!-- Cloud & DevOps -->
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="skill-card p-4 h-100 bg-white dark:bg-[#1f2a44] rounded shadow-sm text-center">
+            <div class="mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:64px;height:64px;border-radius:14px;background:linear-gradient(135deg,#0ea5e9,#10b981);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+              </svg>
+            </div>
+            <h5 class="fw-semibold">Cloud & DevOps</h5>
+            <p class="small mb-0">AWS, Docker, Kubernetes, Nginx, CI/CD, Hugging Face Spaces. WSL2 + CUDA for local LLM hosting.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-16">
+  <section id="projects" class="py-16 reveal">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-8">
+      <div class="text-center mb-6">
         <h2 class="fw-bold display-6">Selected Projects</h2>
         <p class="text-muted">Real-world solutions combining data, AI, and systems engineering.</p>
       </div>
-      <div class="row g-4">
+
+      <!-- Filter chips -->
+      <div class="d-flex justify-content-center flex-wrap gap-2 mb-5" role="tablist" aria-label="Filter projects by category">
+        <button class="filter-chip active" data-filter="all" type="button">All</button>
+        <button class="filter-chip" data-filter="genai" type="button">GenAI &amp; RAG</button>
+        <button class="filter-chip" data-filter="ml" type="button">ML &amp; NLP</button>
+        <button class="filter-chip" data-filter="analytics" type="button">Analytics &amp; BI</button>
+        <button class="filter-chip" data-filter="backend" type="button">Backend</button>
+      </div>
+
+      <div class="row g-4" id="projectsGrid">
+
+        <!-- Featured: Pharma Document Intelligence (RAG) -->
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="genai">
+          <div class="project-card card h-100 border-0">
+            <div class="position-relative">
+              <img src="images/projects/pharma-rag.png" class="card-img-top" alt="Pharma Document Intelligence RAG">
+              <div class="position-absolute top-2 end-2 bg-primary text-white small px-3 py-1 rounded">RAG + GenAI</div>
+              <div class="position-absolute top-2 start-2 badge-featured small px-3 py-1 rounded">Featured</div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Pharma Document Intelligence: Grounded RAG for Regulated Docs</h5>
+              <p class="card-text flex-grow-1">Production-grade Retrieval-Augmented Generation pipeline for pharmaceutical documents. Combines hybrid BM25 + semantic vector search, cross-encoder reranking, and a locally-hosted Mistral 7B LLM to deliver page-cited, grounded answers across Certificates of Quality, BSE/TSE declarations, and packaging specs — with OCR fallback for scanned PDFs and automatic page-level classification.</p>
+              <div class="mt-3 d-flex gap-2">
+                <a href="https://github.com/ty-russ/pharma-doc-rag" target="_blank" class="btn btn-outline-primary btn-sm flex-grow-1">View Code</a>
+                <a href="https://huggingface.co/spaces/Ty-russ/pharma-doc-RAG" target="_blank" class="btn btn-outline-success btn-sm flex-grow-1">Live Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured: Order Cancellation Intelligence -->
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics genai backend">
+          <div class="project-card card h-100 border-0">
+            <div class="position-relative">
+              <img src="images/projects/order-cancellation.png" class="card-img-top" alt="Retail Order Cancellation Intelligence dashboard">
+              <div class="position-absolute top-2 end-2 bg-primary text-white small px-3 py-1 rounded">ML + Analytics</div>
+              <div class="position-absolute top-2 start-2 badge-featured small px-3 py-1 rounded">Featured</div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Retail Intelligence: Order Cancellation Analytics</h5>
+              <p class="card-text flex-grow-1">An investigative analytics platform built on FastAPI + Streamlit + React that turns a retail cancellation workbook into a filter-aware, multi-tab experience. Five LLM-backed AI surfaces (multi-model chat with judge arbitration, narrator, recommender, and dynamic suggestions) surface non-obvious findings — including that <strong>14.5% of cancels are for since-discontinued SKUs</strong> — while numeric facts stay in deterministic Python with a full fallback path.</p>
+              <div class="mt-3 d-flex gap-2">
+                <a href="https://github.com/ty-russ/retail_intelligence" target="_blank" class="btn btn-outline-primary btn-sm flex-grow-1">View Code</a>
+                <a href="https://huggingface.co/spaces/Ty-russ/Retail_Intelligence_OrderCancellation" target="_blank" class="btn btn-outline-success btn-sm flex-grow-1">Live Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Project card example -->
       <!-- Sales Data -->
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics">
         <div class="project-card card h-100 border-0">
           <div class="position-relative">
             <img src="images/projects/KPis.png" class="card-img-top" alt="Sales KPIs Dashboard">
@@ -391,7 +853,7 @@
         </div>
       </div>
         
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics">
           <div class="project-card card h-100 border-0">
             <div class="position-relative">
               <img src="images/projects/subsidy.png" class="card-img-top" alt="Subsidy Project">
@@ -408,7 +870,7 @@
         </div>
 
         <!-- Repeat project card blocks below, updating content -->
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics">
           <div class="project-card card h-100 border-0">
             <div class="position-relative">
               <img src="images/projects/pricing.jpeg" class="card-img-top" alt="Amazon Pricing">
@@ -427,7 +889,7 @@
      
 
         <!-- Additional project examples (trimmed for brevity) -->
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="ml">
           <div class="project-card card h-100 border-0">
             <div class="position-relative">
               <img src="images/projects/writing_clusters.jpeg" class="card-img-top" alt="Comparing Writing Style Across Reuters Regions">
@@ -443,7 +905,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="ml genai">
           <div class="project-card card h-100 border-0">
             <div class="position-relative">
               <img src="images/projects/generic.jpg" class="card-img-top" alt="Recommender System">
@@ -459,7 +921,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 project-col" data-category="ml">
           <div class="project-card card h-100 border-0">
             <div class="position-relative">
               <img src="images/projects/recommender.jpeg" class="card-img-top" alt="Recommender System">
@@ -477,7 +939,7 @@
 
 
       <!-- Customer Feedback Analysis -->
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 project-col" data-category="ml analytics">
         <div class="project-card card h-100 border-0">
           <div class="position-relative">
             <img src="images/projects/feedback.jpeg" class="card-img-top" alt="Customer Feedback Analysis">
@@ -545,7 +1007,7 @@
       </div>  -->
 
       <!-- FORTE Hotel Conjoint Analysis -->
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics">
         <div class="project-card card h-100 border-0">
           <div class="position-relative">
             <img src="images/projects/forte.jpg" class="card-img-top" alt="Forte Hotel Conjoint Analysis">
@@ -562,7 +1024,7 @@
       </div>
 
       <!-- Data Job Market -->
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-md-6 col-lg-4 project-col" data-category="analytics backend">
         <div class="project-card card h-100 border-0">
           <div class="position-relative">
             <img src="images/projects/data-job-market.webp" class="card-img-top" alt="Data Job Market Analysis">
@@ -591,7 +1053,7 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-16 bg-[#0f172a] text-white">
+  <section id="contact" class="py-16 bg-[#0a0e27] text-white reveal">
     <div class="container mx-auto px-4">
       <div class="text-center mb-6">
         <h2 class="fw-bold display-6">Get in Touch</h2>
@@ -632,7 +1094,7 @@
                 <input type="text" name="website" tabindex="-1" autocomplete="off">
               </div>
               <div class="col-12 text-end">
-                <button type="submit" class="btn btn-accent btn-lg text-white" style="background-color:#10b981;">Send Message</button>
+                <button type="submit" class="btn btn-accent btn-lg text-white" style="background-color:#06b6d4;">Send Message</button>
               </div>
             </div>
           </form>
@@ -647,7 +1109,7 @@
   </section>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Dark mode persistence & toggle
     const htmlEl = document.documentElement;
@@ -701,6 +1163,82 @@
   modal.onclick = (e) => {
     if (e.target === modal) modal.classList.add("hidden");
   };
+
+  // ===== Hero typed-text role rotator =====
+  (function () {
+    const target = document.getElementById('typedRole');
+    if (!target) return;
+    const roles = [
+      'RAG pipelines for regulated industries',
+      'agentic AI systems',
+      'production-grade backends',
+      'analytics dashboards leaders trust',
+      'data systems that ship'
+    ];
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    const TYPE_SPEED = 65, DELETE_SPEED = 35, HOLD = 1600, GAP = 350;
+
+    function tick() {
+      const word = roles[roleIdx];
+      if (!deleting) {
+        target.textContent = word.slice(0, ++charIdx);
+        if (charIdx === word.length) {
+          deleting = true;
+          return setTimeout(tick, HOLD);
+        }
+        return setTimeout(tick, TYPE_SPEED);
+      }
+      target.textContent = word.slice(0, --charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        return setTimeout(tick, GAP);
+      }
+      setTimeout(tick, DELETE_SPEED);
+    }
+    setTimeout(tick, 500);
+  })();
+
+  // ===== Projects filter chips =====
+  (function () {
+    const chips = document.querySelectorAll('.filter-chip');
+    const cards = document.querySelectorAll('.project-col');
+    if (!chips.length || !cards.length) return;
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cards.forEach(card => {
+          const cats = (card.dataset.category || '').split(/\s+/);
+          if (filter === 'all' || cats.includes(filter)) {
+            card.classList.remove('filter-hidden');
+          } else {
+            card.classList.add('filter-hidden');
+          }
+        });
+      });
+    });
+  })();
+
+  // ===== Scroll-reveal animation =====
+  (function () {
+    const targets = document.querySelectorAll('.reveal');
+    if (!targets.length || !('IntersectionObserver' in window)) {
+      targets.forEach(el => el.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    targets.forEach(t => io.observe(t));
+  })();
   </script>
 
 </body>
